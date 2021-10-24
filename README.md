@@ -1,4 +1,4 @@
-##go-rollercoaster-api
+## go-rollercoaster-api
 
 ### What is it and what does it do?
 A REST API built with go, that allows you to read and add rollercoaster data.
