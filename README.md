@@ -30,18 +30,18 @@ Functionality I added includes:
 
 
 
-###Curl commands for testing the API
+### Curl commands for testing the API
 You can also use the browser to test the routes
 
-####Post Data:  
+#### Post Data:  
 curl -v localhost:8080/coasters -X POST -d '{"name": "Taron", "inPark": "Phantasialand", "height": 30, "manufacturer": "Intamin"}' -H "Content-Type: application/json"  
 
-####Get Data:  
+#### Get Data:  
 curl -v localhost:8080/coasters | jq  
 
-####Get Random Coaster (with redirect):
+#### Get Random Coaster (with redirect):
 curl localhost:8080/coasters/random -L  
 
-####Test Authentication
+#### Test Authentication
 curl localhost:8080/admin -u admin:secret
 
