@@ -8,7 +8,7 @@ A REST API built with go, that allows you to read and add rollercoaster data.
 2. Set the environment variable "ADMIN_PASSWORD=secret"
 3. Run the main function in the 'server.go' file  
 
-    ####Routes
+    #### Routes
    * /costers -> shows all rollercoaster data  
       Use following query parameters to filter the rollercoaster:
      * name: name of the rollercoaster
