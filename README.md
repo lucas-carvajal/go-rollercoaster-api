@@ -10,7 +10,7 @@ A REST API built with go, that allows you to read and add rollercoaster data.
 
     #### Routes
    * /costers -> shows all rollercoaster data  
-      Use following query parameters to filter the rollercoaster:
+      Use the following query parameters to filter the rollercoaster:
      * name: name of the rollercoaster
      * park: park where the rollercoaster is located
      * height: height of the rollercoaster
