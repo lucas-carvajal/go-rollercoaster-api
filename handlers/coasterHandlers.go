@@ -34,10 +34,10 @@ func NewCoasterHandlers() *coasterHandlers {
 func (h *coasterHandlers) Coasters(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "GET":
-		h.get(w,r)
+		h.get(w, r)
 		return
 	case "POST":
-		h.post(w,r)
+		h.post(w, r)
 		return
 	default:
 		w.WriteHeader(http.StatusMethodNotAllowed)
@@ -102,7 +102,9 @@ func (h *coasterHandlers) addCoasterData(w http.ResponseWriter, r *http.Request)
 
 	coasterHeight, err := strconv.Atoi(values["height"])
 
-	if err != nil { coasterHeight = 0 }
+	if err != nil {
+		coasterHeight = 0
+	}
 
 	coasterID := fmt.Sprintf("%d", time.Now().UnixNano())
 
@@ -155,6 +157,27 @@ func (h *coasterHandlers) get(w http.ResponseWriter, r *http.Request) {
 		i++
 	}
 	h.Unlock()
+
+	queryParameters := r.URL.Query()
+
+	if len(queryParameters) > 0 {
+		queryParams := []string{"name", "park", "height", "minHeight", "maxHeight", "manufacturer"}
+		queryParamsRes := make([]string, 6)
+
+		for index, param := range queryParams {
+			queryParamsRes[index] = param
+		}
+
+		//TODO filter coasters by query parameters
+
+		fmt.Printf("name: %s\n", queryParamsRes[0])
+		fmt.Printf("park: %s\n", queryParamsRes[1])
+		fmt.Printf("height: %s\n", queryParamsRes[2])
+		fmt.Printf("minHeight: %s\n", queryParamsRes[3])
+		fmt.Printf("maxHeight: %s\n", queryParamsRes[4])
+		fmt.Printf("manufacturer: %s\n", queryParamsRes[5])
+
+	}
 
 	jsonBytes, err := json.Marshal(coasters)
 	if err != nil {

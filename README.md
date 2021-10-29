@@ -9,7 +9,14 @@ A REST API built with go, that allows you to read and add rollercoaster data.
 3. Run the main function in the 'server.go' file  
 
     ####Routes
-   * /costers -> shows all rollercoaster data
+   * /costers -> shows all rollercoaster data  
+      Use following query parameters to filter the rollercoaster:
+     * name: name of the rollercoaster
+     * park: park where the rollercoaster is located
+     * height: height of the rollercoaster
+     * minHeight: minimum height of the rollercoaster
+     * maxHeight: maximum height of the rollercoaster
+     * manufacturer: manufacturer of the rollercoaster
    * /coasters/\<id> -> show rollercoaster data for specific id
    * /addCoaster -> add a rollercoaster
    * /admin -> login to see the super secret admin page
@@ -27,7 +34,7 @@ Functionality I added includes:
 * "/" redirects to "/coasters" and anything else gets "page not found" html as a response
 * Add "WWW-Authenticate: Basic" header to the response in case of wrong login credentials for "/admin"
 * Show form under "/addCoaster" to add a coaster from the browser
-
+* WIP: added filter for the "/coasters" route via query parameters
 
 
 ### Curl commands for testing the API
